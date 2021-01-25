@@ -3,6 +3,8 @@
 # do quiz to decide.
 # Fix user race choice
 
+import time
+
 races_russian = {"алехи": "Высокий, загар кожи, быстый и умный. алехи не мирны, они воины,"
                           " светлые глаза и темные глаза и валосы ",
 
@@ -149,25 +151,23 @@ user_race_eng = ()
 
 user_order_eng = ()
 
+
 class Edgedancer:
 
-    def __init__(self, radiant_order, atributes, abilities):
+    def __init__(self, radiant_order, attributes, abilities):
         self.radiant_order = radiant_order
-        self.atributes = atributes
+        self.attributes = attributes
         self.abilities = abilities
-        self.all = radiant_order + "," + atributes + "," + abilities
+        self.all = radiant_order + "," + attributes + "," + abilities
 
     def radiant_info(self):
-        return "{} {} {}".format(self.radiant_order, self.atributes, self.abilities)
+        return "{} {} {}".format(self.radiant_order, self.attributes, self.abilities)
 
 
 radiant_4 = Edgedancer("Edgedancers: ", "virtues unknown. ", "Their Surges are Abrasion and Progression")
 
 radiant_4.radiant_info()
 
-user_race_eng = ()
-
-user_order_eng = ()
 
 class Truthwatcher:
 
@@ -185,10 +185,6 @@ radiant_5 = Truthwatcher("Truthwatcher: ", "Virtues unknown.", "Their Surges are
 
 radiant_5.radiant_info()
 
-user_race_eng = ()
-
-user_order_eng = ()
-
 
 class Lightweaver:
 
@@ -202,13 +198,10 @@ class Lightweaver:
         return "{} {} {}".format(self.radiant_order, self.attributes, self.abilities)
 
 
-radiant_6 = Lightweaver("Lightweaver: ", "Virtues unknwon", "Their Surges are Illumination and Transformation.")
+radiant_6 = Lightweaver("Lightweaver: ", "Virtues unknown", "Their Surges are Illumination and Transformation.")
 
 radiant_6.radiant_info()
 
-user_race_eng = ()
-
-user_order_eng = ()
 
 class Elsecaller:
 
@@ -226,9 +219,6 @@ radiant_7 = Elsecaller("Lightweaver: ", "Virtues unknown", "Their Surges are Tra
 
 radiant_7.radiant_info()
 
-user_race_eng = ()
-
-user_order_eng = ()
 
 class Willshaper:
 
@@ -242,8 +232,7 @@ class Willshaper:
         return "{} {} {}".format(self.radiant_order, self.attributes, self.abilities)
 
 
-radiant_8 = Willshaper( "Elsecaller: ", "Virtues unknwon.", "Their Surges are Transportation and Cohesion.")
-
+radiant_8 = Willshaper("Elsecaller: ", "Virtues unknown.", "Their Surges are Transportation and Cohesion.")
 radiant_8.radiant_info()
 
 
@@ -259,7 +248,7 @@ class Stoneward:
         return "{} {} {}".format(self.radiant_order, self.attributes, self.abilities)
 
 
-radiant_9 = Stoneward( "Stoneward: ", "Virtues unknwon.", "Their Surges are Cohesion and Tension.")
+radiant_9 = Stoneward("Stoneward: ", "Virtues unknown.", "Their Surges are Cohesion and Tension.")
 
 radiant_9.radiant_info()
 
@@ -276,7 +265,7 @@ class Bondsmith:
         return "{} {} {}".format(self.radiant_order, self.attributes, self.abilities)
 
 
-radiant_10 = Bondsmith( "Bondsmith: ", "Virtues unknown.", "Their Surges are Tension and Adhesion")
+radiant_10 = Bondsmith("Bondsmith: ", "Virtues unknown.", "Their Surges are Tension and Adhesion")
 
 radiant_10.radiant_info()
 
@@ -310,10 +299,11 @@ while lang_choice not in languages:
     lang_choice = input("Enter 'R' for Russian or 'E' for English (введите 'Р' для русского или 'A' для английского)")
 
     if lang_choice == "R" or lang_choice == "Р":
-        print("вы играете на русском") #"You are playing in Russian"
+        print("вы играете на русском")  #"You are playing in Russian"
         break
     elif lang_choice == "E" or lang_choice == "А":
         print("You are playing in English")
+        time.sleep(1)
         break
     else:
         print("please pick a language")
@@ -324,9 +314,11 @@ player_info_eng = ["Stats:"]
 player_name = input("what is your name?: ").upper()
 if player_name.isalnum:
     player_info_eng.append(player_name)
+    time.sleep(1)
 
 while True:
     player_age = int(input("what is your age?: "))
+    time.sleep(1)
     if player_age > 0:
         player_info_eng.append(player_age)
         break
@@ -352,15 +344,19 @@ while lang_choice == "R" or languages == "Р":
 
 while lang_choice == "E":
     user_race_eng_repeat = input("Choose a race you would like to know more about: ").upper()
+    time.sleep(1)
     if "ALETHI" in user_race_eng_repeat:
         print(race_1.race_info())
     elif "VEDEN" in user_race_eng_repeat:
         print(race_2.race_info())
     elif "UNKALAKI" in user_race_eng_repeat:
         print(race_3.race_info())
-    more_info = input("Would you like to know about another race?: " )
+        time.sleep(1)
+    more_info = input("Would you like to know about another race?: ")
+    time.sleep(1)
     if "no" in more_info:
         user_race_eng = input("What race are you?: ").upper()
+        time.sleep(1)
         player_info_eng.append(user_race_eng)
         break
     else:
@@ -372,6 +368,7 @@ while lang_choice == "E":
     for key, value in knights_radiant_eng.items():
         print("{}".format(key))
     user_order_eng = input("Choose an order you would like to know more about: ").upper()
+    time.sleep(1)
 
     if "WINDRUNNER" in user_order_eng:
         print(radiant_1.radiant_info())
@@ -393,9 +390,11 @@ while lang_choice == "E":
         print(radiant_9.radiant_info())
     elif "BONDSMITH" in user_order_eng:
         print(radiant_10.radiant_info())
-    more_info = input("Would you like to know about another order?: " )
+    more_info = input("Would you like to know about another order?: ")
+    time.sleep(1)
     if "no" in more_info:
         user_race_eng = input("What order are you?: ").upper()
+        time.sleep(1)
         player_info_eng.append(user_order_eng)
         break
 
